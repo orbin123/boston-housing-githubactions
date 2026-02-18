@@ -131,6 +131,8 @@ The API exposes these metrics at `/metrics`:
 2. Add data source: **Prometheus** → URL: `http://prometheus:9090` → Save & Test
 3. Create dashboards using metrics like `api_requests_total`, `rate(api_request_latency_seconds_sum[5m])`, etc.
 
+<img width="1436" height="704" alt="Screenshot 2026-02-18 at 11 24 20 AM" src="https://github.com/user-attachments/assets/445f87c7-414f-46d5-b82c-3c67fc4cbdf9" />
+
 ## CI/CD Pipeline
 
 The GitHub Actions workflow (`.github/workflows/ml_pipeline.yml`) runs on push/PR to `main`:
