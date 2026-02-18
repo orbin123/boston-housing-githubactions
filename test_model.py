@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 import joblib
 from sklearn.metrics import mean_squared_error, mean_absolute_error
@@ -9,8 +10,17 @@ y_test = pd.read_csv("data/test/y_test.csv")
 # Convert y_test to 1D array
 y_test = y_test.values.ravel()
 
+MODEL_DIR = "models"
+CURRENT_MODEL_FILE = os.path.join(MODEL_DIR, "current_model.txt")
+
+# Read active model name
+with open(CURRENT_MODEL_FILE, "r") as f:
+    model_name = f.read().strip()
+
+model_path = os.path.join(MODEL_DIR, model_name)
+
 # Load Trained Model
-model = joblib.load("models/housing_model.pkl")
+model = joblib.load(model_path)
 
 # Make Predictions
 y_pred = model.predict(X_test)
